@@ -7,6 +7,16 @@ public class MessageUtils {
 	
 	public static void sendPlayerMessage(Player p, String MessageID) {
 		
+		if(MessageID.equals("player_other_pay_no")) {
+			p.sendMessage("§cCe joueur n'as pas assez d'§6or§c !");
+		}else if(MessageID.equals("player_you_pay_no")) {
+			p.sendMessage("§cTu n'as pas assez d'§6or§c !");
+		}else if(MessageID.equals("player_pay_success")) {
+			p.sendMessage("§aAchat effectué !");
+		}else if(MessageID.equals("player_pay_cancell")) {
+			p.sendMessage("§cAchat annulé !");
+		}
+		
 	}
 	
 	public static void sendConsoleMessage(String MessageID) {

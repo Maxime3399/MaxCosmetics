@@ -5,6 +5,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
 import fr.Maxime3399.MaxCosmetics.MainClass;
+import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
 
 public class EventsManager {
 	
@@ -15,7 +16,9 @@ public class EventsManager {
 		
 		pm.registerEvents(new PlayerJoin(), p);
 		pm.registerEvents(new PlayerQuit(), p);
+		pm.registerEvents(new ConfirmMenu(), p);
 		pm.registerEvents(new CosMainMenuEvents(), p);
+		pm.registerEvents(new CosPetsMenuEvents(), p);
 		
 	}
 
