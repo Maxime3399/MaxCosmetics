@@ -4,3 +4,5 @@ author: Maxime3399
 name: MaxCosmetics
 commands:
     cos:
+    mccmd:
+    test:

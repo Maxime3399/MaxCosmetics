@@ -41,6 +41,14 @@ public class PetsList {
 		
 	}
 	
+	public static void renamePet(MaxPlayer mp, String pet, String name) {
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_name(name);
+		}
+		
+	}
+	
 	public static String statusColor(int stats) {
 		
 		String result = "";

@@ -12,8 +12,10 @@ public class MaxPlayer {
 	private String lootboox;
 	private String enable;
 	
-	//Inventory
+	//System
 	private Player invData;
+	private String rename_pet;
+	private boolean mccmd;
 	
 	//Silverfish pet
 	private boolean pet_silverfish;
@@ -50,8 +52,10 @@ public class MaxPlayer {
 		this.setLootboox(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "lootbox"));
 		this.setEnable(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "enable"));
 		
-		//Inventory
+		//System
 		this.setInvData(p);
+		this.setRename_pet(null);
+		this.setMccmd(false);
 		
 		//Silverfish pet
 		this.setPet_silverfish(Boolean.valueOf(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish")));
@@ -156,6 +160,22 @@ public class MaxPlayer {
 
 	public void setInvData(Player invData) {
 		this.invData = invData;
+	}
+
+	public String getRename_pet() {
+		return rename_pet;
+	}
+
+	public void setRename_pet(String rename_pet) {
+		this.rename_pet = rename_pet;
+	}
+
+	public boolean isMccmd() {
+		return mccmd;
+	}
+
+	public void setMccmd(boolean mccmd) {
+		this.mccmd = mccmd;
 	}
 
 	public boolean isPet_silverfish() {

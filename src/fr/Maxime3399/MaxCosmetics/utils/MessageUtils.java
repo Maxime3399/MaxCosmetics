@@ -1,23 +1,8 @@
 package fr.Maxime3399.MaxCosmetics.utils;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class MessageUtils {
-	
-	public static void sendPlayerMessage(Player p, String MessageID) {
-		
-		if(MessageID.equals("player_other_pay_no")) {
-			p.sendMessage("§cCe joueur n'as pas assez d'§6or§c !");
-		}else if(MessageID.equals("player_you_pay_no")) {
-			p.sendMessage("§cTu n'as pas assez d'§6or§c !");
-		}else if(MessageID.equals("player_pay_success")) {
-			p.sendMessage("§aAchat effectué !");
-		}else if(MessageID.equals("player_pay_cancell")) {
-			p.sendMessage("§cAchat annulé !");
-		}
-		
-	}
 	
 	public static void sendConsoleMessage(String MessageID) {
 		
@@ -29,6 +14,8 @@ public class MessageUtils {
 			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §aLe plugin a correctement démarré !");
 		}else if(MessageID.equals("console_table_error")) {
 			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §cLes table n'ont pas pu êres crées dans la base de données !");
+		}else if(MessageID.equals("console_cmd_error")) {
+			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §cCette commande ne peut pas être utilisée par la console !");
 		}
 		
 	}
@@ -59,6 +46,8 @@ public class MessageUtils {
 			result = "§7Soif : §r";
 		}else if(MessageID.equals("menu_item_cos_pets_exercise")) {
 			result = "§7Exercice : §r";
+		}else if(MessageID.equals("menu_item_cos_pets_left_no")) {
+			result = "§c§mClique gauche pour faire apparaître";
 		}else if(MessageID.equals("menu_item_cos_pets_left")) {
 			result = "§6Clique gauche §7pour faire apparaître";
 		}else if(MessageID.equals("menu_item_cos_pets_right")) {
@@ -71,6 +60,34 @@ public class MessageUtils {
 			result = "§eObtenable pour §610 or";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay_no")) {
 			result = "§cIl te faut §610 or";
+		}else if(MessageID.equals("player_other_pay_no")) {
+			result = "§cCe joueur n'as pas assez d'§6or§c !";
+		}else if(MessageID.equals("player_you_pay_no")) {
+			result = "§cTu n'as pas assez d'§6or§c !";
+		}else if(MessageID.equals("player_pay_success")) {
+			result = "§aAchat effectué !";
+		}else if(MessageID.equals("player_pay_cancell")) {
+			result = "§cAchat annulé !";
+		}else if(MessageID.equals("player_disconnected")) {
+			result = "§cLe joueur s'est déconnecté !";
+		}else if(MessageID.equals("player_rename_space")) {
+			result = "§cLe nom ne peut pas contenir d'espaces !";
+		}else if(MessageID.equals("player_rename_success")) {
+			result = "§aNom modifié !";
+		}else if(MessageID.equals("player_rename_info")) {
+			result = "§eEcris dans le chat le nouveau nom de ton animal";
+		}else if(MessageID.equals("super_cancell")) {
+			result = " §c§l[ANNULER]";
+		}else if(MessageID.equals("player_cmd_error")) {
+			result = " §cTu ne peux pas utiliser cette commande !";
+		}else if(MessageID.equals("player_rename_cancell")) {
+			result = "§cChangement de nom annulé !";
+		}else if(MessageID.equals("menu_item_cos_pets_bar_1")) {
+			result = "§c§oTon animal ne peut pas appraître";
+		}else if(MessageID.equals("menu_item_cos_pets_bar_2")) {
+			result = "§c§osi il a soif ou faim.";
+		}else if(MessageID.equals("player_pet_spawn_bar")) {
+			result = "§cTon animal ne peut pas apparaître si il a faim ou soif.";
 		}
 		
 		return result;

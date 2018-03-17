@@ -9,7 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.Maxime3399.MaxCosmetics.events.EventsManager;
+import fr.Maxime3399.MaxCosmetics.commands.CommandMccmd;
+import fr.Maxime3399.MaxCosmetics.managers.EventsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
 import fr.Maxime3399.MaxCosmetics.menus.CosMainMenu;
@@ -97,6 +98,12 @@ public class MainClass extends JavaPlugin{
 			
 			Player p = (Player) sender;
 			CosMainMenu.openMenu(p, p);
+			
+		}else if(cmd.getName().equalsIgnoreCase("mccmd")) {
+			CommandMccmd.command(sender, cmd.getName(), label, args);
+		}else if(cmd.getName().equalsIgnoreCase("test")) {
+			
+			//Player p = (Player) sender;
 			
 		}
 		

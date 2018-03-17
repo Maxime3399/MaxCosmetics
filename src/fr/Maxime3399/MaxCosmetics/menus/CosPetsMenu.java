@@ -42,7 +42,14 @@ public class CosPetsMenu {
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_thirst")+PetsList.statusColor(mpd.getPet_silverfish_thirst())+mpd.getPet_silverfish_thirst()+"§8/§r100");
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_exercise")+PetsList.statusColor(mpd.getPet_silverfish_exercise())+mpd.getPet_silverfish_exercise()+"§8/§r100");
 			ALsilverfish.add(" ");
-			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left"));
+			if(mpd.getPet_silverfish_hunger() < 10 && mpd.getPet_silverfish_thirst() < 5) {
+				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_bar_1"));
+				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_bar_2"));
+				ALsilverfish.add(" ");
+				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left_no"));
+			}else {
+				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left"));
+			}
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_right"));
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_middle"));
 			if(mpd.getEnable().contains("pet_silverfish")) {
