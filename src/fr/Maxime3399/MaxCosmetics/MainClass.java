@@ -5,12 +5,15 @@ import java.io.File;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.Maxime3399.MaxCosmetics.commands.CommandMccmd;
+import fr.Maxime3399.MaxCosmetics.custom.Pet;
 import fr.Maxime3399.MaxCosmetics.managers.EventsManager;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
 import fr.Maxime3399.MaxCosmetics.menus.CosMainMenu;
@@ -24,6 +27,8 @@ public class MainClass extends JavaPlugin{
 	public void onEnable() {
 		
 		plugin = this;
+		PetsManager.use = true;
+		PlayersManager.use = true;
 		
 		if(VersionsManager.setupVersion()) {
 			
@@ -45,6 +50,7 @@ public class MainClass extends JavaPlugin{
 						
 					}
 					EventsManager.registerEvents();
+					PetsManager.startScheduler();
 					MessageUtils.sendConsoleMessage("console_load_success");
 					
 				}else {
@@ -74,6 +80,9 @@ public class MainClass extends JavaPlugin{
 		
 		for(Player pls : Bukkit.getOnlinePlayers()) {
 			
+			if(PetsManager.havePet(pls)) {
+				PetsManager.removePet(PetsManager.getPlayerPet(pls));
+			}
 			PlayersManager.removePlayer(pls);
 			
 		}
@@ -103,7 +112,25 @@ public class MainClass extends JavaPlugin{
 			CommandMccmd.command(sender, cmd.getName(), label, args);
 		}else if(cmd.getName().equalsIgnoreCase("test")) {
 			
-			//Player p = (Player) sender;
+			Player p = (Player) sender;
+			Pet pet = PetsManager.getPlayerPet(p);
+			VersionsManager.getVClass().entityMoove(pet.getEntity(), p.getLocation(), 2);
+			
+		}else if(cmd.getName().equalsIgnoreCase("rm")) {
+			
+			for(Entity e : Bukkit.getWorld("world").getEntities()) {
+				
+				if(e.getCustomName() != null) {
+					
+					if(e.getCustomName().equalsIgnoreCase("§0TEST")) {
+						
+						e.remove();
+						
+					}
+					
+				}
+				
+			}
 			
 		}
 		

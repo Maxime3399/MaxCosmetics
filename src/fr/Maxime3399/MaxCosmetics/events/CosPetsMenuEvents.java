@@ -3,7 +3,9 @@ package fr.Maxime3399.MaxCosmetics.events;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Silverfish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
@@ -12,6 +14,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.Maxime3399.MaxCosmetics.MainClass;
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
+import fr.Maxime3399.MaxCosmetics.custom.Pet;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
 import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
@@ -56,7 +60,11 @@ public class CosPetsMenuEvents implements Listener {
 								p.sendMessage(MessageUtils.getString("player_pet_spawn_bar"));
 								p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
 							}else {
-								//spawn
+								Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
+								Pet pet = PetsManager.addPet(en, mpd.getPet_silverfish_name(), mp.getInvData(), mpd.getPet_silverfish_level());
+								mp.getInvData().getWorld().playSound(mp.getInvData().getLocation(), Sound.HORSE_GALLOP, 3, 2);
+								p.closeInventory();
+								VersionsManager.getVClass().entityMoove(pet.getEntity(), mp.getInvData().getLocation(), 1);
 							}
 						}
 					}else {

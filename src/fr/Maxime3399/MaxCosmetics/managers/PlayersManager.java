@@ -9,6 +9,7 @@ import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
 public class PlayersManager {
 	
 	private static ArrayList<MaxPlayer> list = new ArrayList<>();
+	public static boolean use;
 	
 	public static MaxPlayer addPlayer(Player p) {
 		

@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
 
@@ -37,6 +38,13 @@ public class PlayerQuit implements Listener {
 				}
 				
 				mps.setInvData(pls);
+				
+			}
+			
+			if(PetsManager.havePet(pls)) {
+				
+				PetsManager.getPlayerPet(pls).setStop(true);
+				PetsManager.getPlayerPet(pls).getEntity().remove();
 				
 			}
 			

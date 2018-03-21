@@ -1,5 +1,7 @@
 package fr.Maxime3399.MaxCosmetics.managers;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 
 import fr.Maxime3399.MaxCosmetics.versions.Version1_8_R3;
@@ -9,6 +11,8 @@ public class VersionsManager {
 	
 	private static String version;
 	private static Versions vclass;
+	
+	public static ArrayList<String> moove = new ArrayList<>();
 	
 	public static boolean setupVersion() {
 		

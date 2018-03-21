@@ -7,7 +7,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
 
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
+import fr.Maxime3399.MaxCosmetics.custom.Pet;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.menus.CosPetsMenu;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
@@ -45,6 +47,11 @@ public class ChatEvents implements Listener {
 					p.sendMessage(MessageUtils.getString("player_rename_success"));
 					p.playSound(p.getLocation(), Sound.NOTE_PLING, 100, 1);
 					CosPetsMenu.openMenu(p, mp.getInvData());
+					for(Pet pets : PetsManager.getPets()) {
+						if(pets.getPlayer() == mp.getInvData()) {
+							pets.setName(name);
+						}
+					}
 					
 				}
 				
