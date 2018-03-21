@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
@@ -48,11 +49,15 @@ public class CosPetsMenu {
 				ALsilverfish.add(" ");
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left_no"));
 			}else {
-				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left"));
+				if(PetsManager.havePet(mp.getInvData())) {
+					ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left_dispawn"));
+				}else {
+					ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_left_spawn"));
+				}
 			}
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_right"));
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_middle"));
-			if(mpd.getEnable().contains("pet_silverfish")) {
+			if(PetsManager.havePet(mp.getInvData())) {
 				IMsilverfish.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
 				IMsilverfish.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			}

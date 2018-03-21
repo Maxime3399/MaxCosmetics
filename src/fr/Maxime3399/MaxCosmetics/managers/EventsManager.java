@@ -8,6 +8,7 @@ import fr.Maxime3399.MaxCosmetics.MainClass;
 import fr.Maxime3399.MaxCosmetics.events.ChatEvents;
 import fr.Maxime3399.MaxCosmetics.events.CosMainMenuEvents;
 import fr.Maxime3399.MaxCosmetics.events.CosPetsMenuEvents;
+import fr.Maxime3399.MaxCosmetics.events.DamageEvents;
 import fr.Maxime3399.MaxCosmetics.events.PlayerJoin;
 import fr.Maxime3399.MaxCosmetics.events.PlayerQuit;
 import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
@@ -23,6 +24,7 @@ public class EventsManager {
 		pm.registerEvents(new PlayerJoin(), p);
 		pm.registerEvents(new PlayerQuit(), p);
 		pm.registerEvents(new ChatEvents(), p);
+		pm.registerEvents(new DamageEvents(), p);
 		
 		//Menu events
 		pm.registerEvents(new ConfirmMenu(), p);

@@ -43,8 +43,7 @@ public class PlayerQuit implements Listener {
 			
 			if(PetsManager.havePet(pls)) {
 				
-				PetsManager.getPlayerPet(pls).setStop(true);
-				PetsManager.getPlayerPet(pls).getEntity().remove();
+				PetsManager.removePet(pls);
 				
 			}
 			

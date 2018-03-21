@@ -48,8 +48,10 @@ public class MessageUtils {
 			result = "§7Exercice : §r";
 		}else if(MessageID.equals("menu_item_cos_pets_left_no")) {
 			result = "§c§mClique gauche pour faire apparaître";
-		}else if(MessageID.equals("menu_item_cos_pets_left")) {
+		}else if(MessageID.equals("menu_item_cos_pets_left_spawn")) {
 			result = "§6Clique gauche §7pour faire apparaître";
+		}else if(MessageID.equals("menu_item_cos_pets_left_dispawn")) {
+			result = "§6Clique gauche §7pour faire dispparaître";
 		}else if(MessageID.equals("menu_item_cos_pets_right")) {
 			result = "§bClique droit §7pour nourir";
 		}else if(MessageID.equals("menu_item_cos_pets_middle")) {

@@ -3,9 +3,7 @@ package fr.Maxime3399.MaxCosmetics.events;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Silverfish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
@@ -14,7 +12,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.Maxime3399.MaxCosmetics.MainClass;
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
-import fr.Maxime3399.MaxCosmetics.custom.Pet;
+import fr.Maxime3399.MaxCosmetics.list.PetsList;
 import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
@@ -56,15 +54,21 @@ public class CosPetsMenuEvents implements Listener {
 							p.playSound(p.getLocation(), Sound.ANVIL_USE, 100, 1);
 							p.closeInventory();
 						}else {
-							if(mpd.getPet_silverfish_hunger() < 10 && mp.getPet_silverfish_thirst() < 10) {
-								p.sendMessage(MessageUtils.getString("player_pet_spawn_bar"));
-								p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
+							if(PetsManager.havePet(mp.getInvData())) {
+								PetsManager.removePet(mp.getInvData());
+								mp.getInvData().getWorld().playSound(mp.getInvData().getLocation(), Sound.HORSE_GALLOP, 3, 1);
+								CosPetsMenu.openMenu(p, mp.getInvData());
+								mpd.setEnable(mpd.getEnable().replaceAll("pet_silverfish", ""));
 							}else {
-								Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
-								Pet pet = PetsManager.addPet(en, mpd.getPet_silverfish_name(), mp.getInvData(), mpd.getPet_silverfish_level());
-								mp.getInvData().getWorld().playSound(mp.getInvData().getLocation(), Sound.HORSE_GALLOP, 3, 2);
-								p.closeInventory();
-								VersionsManager.getVClass().entityMoove(pet.getEntity(), mp.getInvData().getLocation(), 1);
+								if(mpd.getPet_silverfish_hunger() < 10 && mp.getPet_silverfish_thirst() < 10) {
+									p.sendMessage(MessageUtils.getString("player_pet_spawn_bar"));
+									p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
+								}else {
+									mp.getInvData().getWorld().playSound(mp.getInvData().getLocation(), Sound.HORSE_GALLOP, 3, 2);
+									p.closeInventory();
+									mpd.setEnable(mpd.getEnable()+"pet_silverfish");
+									PetsList.spawnPet(mp.getInvData());
+								}
 							}
 						}
 					}else {

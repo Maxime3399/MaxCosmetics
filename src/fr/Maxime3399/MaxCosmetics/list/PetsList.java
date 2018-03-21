@@ -1,8 +1,11 @@
 package fr.Maxime3399.MaxCosmetics.list;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Silverfish;
 
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 
 public class PetsList {
@@ -38,6 +41,17 @@ public class PetsList {
 		int result = level*3;
 		
 		return result;
+		
+	}
+	
+	public static void spawnPet(Player p) {
+		
+		MaxPlayer mp = PlayersManager.getMaxPlayer(p);
+		
+		if(mp.getEnable().contains("pet_silverfish")) {
+			Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
+			PetsManager.addPet(en, mp.getPet_silverfish_name(), p, mp.getPet_silverfish_level());
+		}
 		
 	}
 	
