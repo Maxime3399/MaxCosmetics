@@ -16,6 +16,36 @@ public class MaxPlayer {
 	private Player invData;
 	private String rename_pet;
 	private boolean mccmd;
+	private String foodpet;
+	
+	//Food
+	private int food_appple;
+	private int food_bread;
+	private int food_carrot;
+	private int food_potato;
+	private int food_melon;
+	private int food_fish;
+	private int food_grass;
+	private int food_mushroom_b;
+	private int food_mushroom_r;
+	private int food_flower;
+	private int food_wheat;
+	private int food_cake;
+	private int food_cookie;
+	private int food_pie;
+	private int food_golden;
+	
+	//Drink
+	private int drink_water;
+	private int drink_milk;
+	private int drink_lava;
+	
+	//Toys
+	private int toy_ball;
+	private int toy_freesbie;
+	private int toy_laser;
+	private int toy_run;
+	
 	
 	//Silverfish pet
 	private boolean pet_silverfish;
@@ -57,6 +87,34 @@ public class MaxPlayer {
 		this.setRename_pet(null);
 		this.setMccmd(false);
 		
+		//Food
+		this.setFood_appple(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_apple"));
+		this.setFood_bread(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_bread"));
+		this.setFood_carrot(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_carrot"));
+		this.setFood_potato(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_potato"));
+		this.setFood_melon(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_melon"));
+		this.setFood_fish(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_fish"));
+		this.setFood_grass(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_grass"));
+		this.setFood_mushroom_b(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_mushroom_b"));
+		this.setFood_mushroom_r(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_mushroom_r"));
+		this.setFood_flower(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_flower"));
+		this.setFood_wheat(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_wheat"));
+		this.setFood_cake(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_cake"));
+		this.setFood_cookie(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_cookie"));
+		this.setFood_pie(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_pie"));
+		this.setFood_golden(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "food_golden"));
+		
+		//Drink
+		this.setDrink_water(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "drink_water"));
+		this.setDrink_milk(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "drink_milk"));
+		this.setDrink_lava(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "drink_lava"));
+		
+		//Toys
+		this.setToy_ball(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "toy_ball"));
+		this.setToy_freesbie(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "toy_freesbie"));
+		this.setToy_laser(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "toy_laser"));
+		this.setToy_run(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "toy_run"));
+		
 		//Silverfish pet
 		this.setPet_silverfish(Boolean.valueOf(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish")));
 		this.setPet_silverfish_name(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish_name"));
@@ -90,8 +148,36 @@ public class MaxPlayer {
 		
 		//Player informations
 		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "gold", gold);
-		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "lootbox", String.valueOf(lootboox));
-		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "enable", String.valueOf(enable));
+		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "lootbox", lootboox);
+		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "enable", enable);
+		
+		//Food
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_apple", food_appple);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_bread", food_bread);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_cake", food_cake);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_carrot", food_carrot);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_cookie", food_cookie);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_fish", food_fish);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_flower", food_flower);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_golden", food_golden);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_grass", food_grass);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_melon", food_melon);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_mushroom_b", food_mushroom_b);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_mushroom_r", food_mushroom_r);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_pie", food_pie);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_potato", food_potato);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_wheat", food_wheat);
+		
+		//Drink
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "drink_water", drink_water);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "drink_milk", drink_milk);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "drink_lava", drink_lava);
+		
+		//Toys
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "toy_ball", toy_ball);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "toy_freesbie", toy_freesbie);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "toy_laser", toy_laser);
+		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "toy_run", toy_run);
 		
 		//Silverfish pet
 		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "pet_silverfish", String.valueOf(pet_silverfish));
@@ -176,6 +262,190 @@ public class MaxPlayer {
 
 	public void setMccmd(boolean mccmd) {
 		this.mccmd = mccmd;
+	}
+
+	public String getFoodpet() {
+		return foodpet;
+	}
+
+	public void setFoodpet(String foodpet) {
+		this.foodpet = foodpet;
+	}
+
+	public int getFood_appple() {
+		return food_appple;
+	}
+
+	public void setFood_appple(int food_appple) {
+		this.food_appple = food_appple;
+	}
+
+	public int getFood_bread() {
+		return food_bread;
+	}
+
+	public void setFood_bread(int food_bread) {
+		this.food_bread = food_bread;
+	}
+
+	public int getFood_carrot() {
+		return food_carrot;
+	}
+
+	public void setFood_carrot(int food_carrot) {
+		this.food_carrot = food_carrot;
+	}
+
+	public int getFood_potato() {
+		return food_potato;
+	}
+
+	public void setFood_potato(int food_potato) {
+		this.food_potato = food_potato;
+	}
+
+	public int getFood_melon() {
+		return food_melon;
+	}
+
+	public void setFood_melon(int food_melon) {
+		this.food_melon = food_melon;
+	}
+
+	public int getFood_fish() {
+		return food_fish;
+	}
+
+	public void setFood_fish(int food_fish) {
+		this.food_fish = food_fish;
+	}
+
+	public int getFood_grass() {
+		return food_grass;
+	}
+
+	public void setFood_grass(int food_grass) {
+		this.food_grass = food_grass;
+	}
+
+	public int getFood_mushroom_b() {
+		return food_mushroom_b;
+	}
+
+	public void setFood_mushroom_b(int food_mushroom_b) {
+		this.food_mushroom_b = food_mushroom_b;
+	}
+
+	public int getFood_mushroom_r() {
+		return food_mushroom_r;
+	}
+
+	public void setFood_mushroom_r(int food_mushroom_r) {
+		this.food_mushroom_r = food_mushroom_r;
+	}
+
+	public int getFood_flower() {
+		return food_flower;
+	}
+
+	public void setFood_flower(int food_flower) {
+		this.food_flower = food_flower;
+	}
+
+	public int getFood_wheat() {
+		return food_wheat;
+	}
+
+	public void setFood_wheat(int food_wheat) {
+		this.food_wheat = food_wheat;
+	}
+
+	public int getFood_cake() {
+		return food_cake;
+	}
+
+	public void setFood_cake(int food_cake) {
+		this.food_cake = food_cake;
+	}
+
+	public int getFood_cookie() {
+		return food_cookie;
+	}
+
+	public void setFood_cookie(int food_cookie) {
+		this.food_cookie = food_cookie;
+	}
+
+	public int getFood_pie() {
+		return food_pie;
+	}
+
+	public void setFood_pie(int food_pie) {
+		this.food_pie = food_pie;
+	}
+
+	public int getFood_golden() {
+		return food_golden;
+	}
+
+	public void setFood_golden(int food_golden) {
+		this.food_golden = food_golden;
+	}
+
+	public int getDrink_water() {
+		return drink_water;
+	}
+
+	public void setDrink_water(int drink_water) {
+		this.drink_water = drink_water;
+	}
+
+	public int getDrink_milk() {
+		return drink_milk;
+	}
+
+	public void setDrink_milk(int drink_milk) {
+		this.drink_milk = drink_milk;
+	}
+
+	public int getDrink_lava() {
+		return drink_lava;
+	}
+
+	public void setDrink_lava(int drink_lava) {
+		this.drink_lava = drink_lava;
+	}
+
+	public int getToy_ball() {
+		return toy_ball;
+	}
+
+	public void setToy_ball(int toy_ball) {
+		this.toy_ball = toy_ball;
+	}
+
+	public int getToy_freesbie() {
+		return toy_freesbie;
+	}
+
+	public void setToy_freesbie(int toy_freesbie) {
+		this.toy_freesbie = toy_freesbie;
+	}
+
+	public int getToy_laser() {
+		return toy_laser;
+	}
+
+	public void setToy_laser(int toy_laser) {
+		this.toy_laser = toy_laser;
+	}
+
+	public int getToy_run() {
+		return toy_run;
+	}
+
+	public void setToy_run(int toy_run) {
+		this.toy_run = toy_run;
 	}
 
 	public boolean isPet_silverfish() {

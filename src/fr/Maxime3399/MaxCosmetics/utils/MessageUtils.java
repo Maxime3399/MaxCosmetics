@@ -56,10 +56,10 @@ public class MessageUtils {
 			result = "§bClique droit §7pour nourir";
 		}else if(MessageID.equals("menu_item_cos_pets_middle")) {
 			result = "§eClique molette §7pour renommer";
-		}else if(MessageID.equals("menu_item_cos_pets_found")) {
+		}else if(MessageID.equals("menu_item_found")) {
 			result = "§7Trouvable dans un §bCoffre mystère";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay")) {
-			result = "§eObtenable pour §610 or";
+			result = "§eAchetable pour §610 or";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay_no")) {
 			result = "§cIl te faut §610 or";
 		}else if(MessageID.equals("player_other_pay_no")) {
@@ -90,6 +90,28 @@ public class MessageUtils {
 			result = "§c§osi il a soif ou faim.";
 		}else if(MessageID.equals("player_pet_spawn_bar")) {
 			result = "§cTon animal ne peut pas apparaître si il a faim ou soif.";
+		}else if(MessageID.equals("menu_name_food")) {
+			result = "§8Nourrir";
+		}else if(MessageID.equals("menu_item_food_apple")) {
+			result = "§ePomme";
+		}else if(MessageID.equals("menu_item_food_apple_no")) {
+			result = "§6Pomme";
+		}else if(MessageID.equals("menu_item_food_click_eat")) {
+			result = "§3Clique §7pour donner";
+		}else if(MessageID.equals("menu_item_food_click_eat_no")) {
+			result = "§c§mClique pour donner";
+		}else if(MessageID.equals("menu_item_food_nohunger")) {
+			result = "§cTon animal a assez mangé !";
+		}else if(MessageID.equals("menu_item_get")) {
+			result = "§7Obtenable dans un §bCoffre mystère";
+		}else if(MessageID.equals("menu_item_food_pay")) {
+			result = "§eAchetable pour §61 or";
+		}else if(MessageID.equals("menu_item_food_pay_no")) {
+			result = "§cIl te faut §61 or";
+		}else if(MessageID.equals("player_hunger_max")) {
+			result = "§cTon animal a assez mangé !";
+		}else if(MessageID.equals("menu_item_food_apple_add")) {
+			result = "§7Nouriture : §a+5";
 		}
 		
 		return result;

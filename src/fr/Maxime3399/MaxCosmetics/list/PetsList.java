@@ -44,6 +44,50 @@ public class PetsList {
 		
 	}
 	
+	public static void setPetHunger(MaxPlayer mp, String pet, int value) {
+		
+		if(value > 100) {
+			value = 100;
+		}
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_hunger(value);
+		}
+		
+	}
+	
+	public static void setPetThirst(MaxPlayer mp, String pet, int value) {
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_thirst(value);
+		}
+		
+	}
+	
+	public static int getPetHunger(MaxPlayer mp, String pet) {
+		
+		int result = 0;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			result = mp.getPet_silverfish_hunger();
+		}
+		
+		return result;
+		
+	}
+	
+	public static int getPetThirst(MaxPlayer mp, String pet) {
+		
+		int result = 0;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			result = mp.getPet_silverfish_thirst();
+		}
+		
+		return result;
+		
+	}
+	
 	public static void spawnPet(Player p) {
 		
 		MaxPlayer mp = PlayersManager.getMaxPlayer(p);

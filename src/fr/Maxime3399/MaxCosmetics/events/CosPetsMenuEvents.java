@@ -18,6 +18,7 @@ import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.managers.VersionsManager;
 import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
 import fr.Maxime3399.MaxCosmetics.menus.CosPetsMenu;
+import fr.Maxime3399.MaxCosmetics.menus.FoodMenu;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
 
 public class CosPetsMenuEvents implements Listener {
@@ -46,7 +47,8 @@ public class CosPetsMenuEvents implements Listener {
 					
 					if(mpd.isPet_silverfish()) {
 						if(e.getClick() == ClickType.RIGHT) {
-							//feed
+							FoodMenu.openMenu(p, mp.getInvData(), "pet_silverfish");
+							p.playSound(p.getLocation(), Sound.CLICK, 100, 1);
 						}else if(e.getClick() == ClickType.MIDDLE) {
 							mp.setRename_pet("pet_silverfish");
 							VersionsManager.getVClass().sendJSONMessage(p, "[{\"text\":\""+MessageUtils.getString("player_rename_info")+"\"},{\"text\":\""+MessageUtils.getString("super_cancell")+"\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/mccmd pet_rename_cancell\"}}]");

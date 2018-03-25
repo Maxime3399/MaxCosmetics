@@ -42,7 +42,57 @@ public class MainClass extends JavaPlugin{
 			
 			if(MySQLUtils.connect()) {
 				
-				if(MySQLUtils.execute("CREATE TABLE IF NOT EXISTS `#database#`.`maxcosmetics_players` ( `uuid` VARCHAR(255) NOT NULL , `gold` INT(255) NOT NULL , `lootbox` VARCHAR(255) NOT NULL , `enable` VARCHAR(255) NOT NULL , `pet_silverfish` VARCHAR(255) NOT NULL , `pet_silverfish_name` VARCHAR(255) NOT NULL , `pet_silverfish_level` INT(255) NOT NULL , `pet_silverfish_exp` INT(255) NOT NULL , `pet_silverfish_hunger` INT(255) NOT NULL , `pet_silverfish_thirst` INT(255) NOT NULL , `pet_silverfish_exercise` INT(255) NOT NULL , `pet_catblack` VARCHAR(255) NOT NULL , `pet_catblack_name` VARCHAR(255) NOT NULL , `pet_catblack_level` INT(255) NOT NULL , `pet_catblack_exp` INT(255) NOT NULL , `pet_catblack_hunger` INT(255) NOT NULL , `pet_catblack_thirst` INT(255) NOT NULL , `pet_catblack_exercise` INT(255) NOT NULL , `pet_catblackbaby` VARCHAR(255) NOT NULL , `pet_catblackbaby_name` VARCHAR(255) NOT NULL , `pet_catblackbaby_level` INT(255) NOT NULL , `pet_catblackbaby_exp` INT(255) NOT NULL , `pet_catblackbaby_hunger` INT(255) NOT NULL , `pet_catblackbaby_thirst` INT(255) NOT NULL , `pet_catblackbaby_exercise` INT(255) NOT NULL , PRIMARY KEY (`uuid`)) ENGINE = MyISAM;", false)) {
+				if(MySQLUtils.execute("\r\n" + 
+						"CREATE TABLE IF NOT EXISTS `maxcosmetics_players` (\r\n" + 
+						"  `uuid` varchar(255) NOT NULL,\r\n" + 
+						"  `gold` int(255) NOT NULL,\r\n" + 
+						"  `lootbox` varchar(255) NOT NULL,\r\n" + 
+						"  `enable` varchar(255) NOT NULL,\r\n" + 
+						"  `food_apple` int(255) NOT NULL,\r\n" + 
+						"  `food_bread` int(255) NOT NULL,\r\n" + 
+						"  `food_carrot` int(255) NOT NULL,\r\n" + 
+						"  `food_potato` int(255) NOT NULL,\r\n" + 
+						"  `food_melon` int(255) NOT NULL,\r\n" + 
+						"  `food_fish` int(255) NOT NULL,\r\n" + 
+						"  `food_grass` int(255) NOT NULL,\r\n" + 
+						"  `food_mushroom_b` int(255) NOT NULL,\r\n" + 
+						"  `food_mushroom_r` int(255) NOT NULL,\r\n" + 
+						"  `food_flower` int(255) NOT NULL,\r\n" + 
+						"  `food_wheat` int(255) NOT NULL,\r\n" + 
+						"  `food_cake` int(255) NOT NULL,\r\n" + 
+						"  `food_cookie` int(255) NOT NULL,\r\n" + 
+						"  `food_pie` int(255) NOT NULL,\r\n" + 
+						"  `food_golden` int(255) NOT NULL,\r\n" + 
+						"  `drink_water` int(255) NOT NULL,\r\n" + 
+						"  `drink_milk` int(255) NOT NULL,\r\n" + 
+						"  `drink_lava` int(255) NOT NULL,\r\n" + 
+						"  `toy_ball` int(255) NOT NULL,\r\n" + 
+						"  `toy_freesbie` int(255) NOT NULL,\r\n" + 
+						"  `toy_laser` int(255) NOT NULL,\r\n" + 
+						"  `toy_run` int(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_name` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_level` int(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_exp` int(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_hunger` int(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_thirst` int(255) NOT NULL,\r\n" + 
+						"  `pet_silverfish_exercise` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblack` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_name` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_level` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_exp` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_hunger` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_thirst` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblack_exercise` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_name` varchar(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_level` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_exp` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_hunger` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_thirst` int(255) NOT NULL,\r\n" + 
+						"  `pet_catblackbaby_exercise` int(255) NOT NULL,\r\n" + 
+						"  PRIMARY KEY (`uuid`)\r\n" + 
+						") ENGINE=MyISAM DEFAULT CHARSET=latin1;", false)) {
 					
 					for(Player pls : Bukkit.getOnlinePlayers()) {
 						

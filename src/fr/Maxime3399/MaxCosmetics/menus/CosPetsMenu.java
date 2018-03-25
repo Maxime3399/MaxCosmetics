@@ -62,7 +62,7 @@ public class CosPetsMenu {
 				IMsilverfish.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			}
 		}else {
-			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_found"));
+			ALsilverfish.add(MessageUtils.getString("menu_item_found"));
 			ALsilverfish.add(" ");
 			if(mpd.getGold() >= 10) {
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_silverfish_pay"));
