@@ -16,16 +16,21 @@ public class Pet {
 	private String name;
 	private Player player;
 	private int level;
+	private int delay;
+	
+	private String type;
 	
 	private boolean stop;
 	
-	public Pet(Entity e, String name, Player p, int lvl) {
+	public Pet(Entity e, String name, Player p, int lvl, String type) {
 		
 		this.setId(e.getEntityId());
 		this.setEntity(e);
 		this.setName(name);
 		this.setPlayer(p);
 		this.setLevel(lvl);
+		this.setDelay(0);
+		this.setType(type);
 		this.setStop(false);
 		
 		e.setCustomName(PetsList.getLevelColor(lvl)+lvl+"§r "+name.replaceAll("&", "§"));
@@ -110,6 +115,22 @@ public class Pet {
 	public void setLevel(int level) {
 		this.level = level;
 		entity.setCustomName(PetsList.getLevelColor(level)+level+"§r "+name.replaceAll("&", "§"));
+	}
+
+	public int getDelay() {
+		return delay;
+	}
+
+	public void setDelay(int delay) {
+		this.delay = delay;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public boolean isStop() {

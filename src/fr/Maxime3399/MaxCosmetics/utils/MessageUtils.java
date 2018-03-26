@@ -59,9 +59,9 @@ public class MessageUtils {
 		}else if(MessageID.equals("menu_item_found")) {
 			result = "§7Trouvable dans un §bCoffre mystère";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay")) {
-			result = "§eAchetable pour §610 or";
+			result = "§eAchetable pour §620 or";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay_no")) {
-			result = "§cIl te faut §610 or";
+			result = "§cIl te faut §620 or";
 		}else if(MessageID.equals("player_other_pay_no")) {
 			result = "§cCe joueur n'as pas assez d'§6or§c !";
 		}else if(MessageID.equals("player_you_pay_no")) {
@@ -85,11 +85,11 @@ public class MessageUtils {
 		}else if(MessageID.equals("player_rename_cancell")) {
 			result = "§cChangement de nom annulé !";
 		}else if(MessageID.equals("menu_item_cos_pets_bar_1")) {
-			result = "§c§oTon animal ne peut pas appraître";
+			result = "§c§oTon animal ne peut pas appraître si il";
 		}else if(MessageID.equals("menu_item_cos_pets_bar_2")) {
-			result = "§c§osi il a soif ou faim.";
+			result = "§c§oa faim, soif ou est fatigué.";
 		}else if(MessageID.equals("player_pet_spawn_bar")) {
-			result = "§cTon animal ne peut pas apparaître si il a faim ou soif.";
+			result = "§cTon animal ne peut pas apparaître si il a faim, soif ou est fatigué.";
 		}else if(MessageID.equals("menu_name_food")) {
 			result = "§8Nourrir";
 		}else if(MessageID.equals("menu_item_food_apple")) {
@@ -104,14 +104,44 @@ public class MessageUtils {
 			result = "§cTon animal a assez mangé !";
 		}else if(MessageID.equals("menu_item_get")) {
 			result = "§7Obtenable dans un §bCoffre mystère";
-		}else if(MessageID.equals("menu_item_food_pay")) {
+		}else if(MessageID.equals("menu_item_food_apple_pay")) {
 			result = "§eAchetable pour §61 or";
-		}else if(MessageID.equals("menu_item_food_pay_no")) {
+		}else if(MessageID.equals("menu_item_food_apple_pay_no")) {
 			result = "§cIl te faut §61 or";
 		}else if(MessageID.equals("player_hunger_max")) {
 			result = "§cTon animal a assez mangé !";
 		}else if(MessageID.equals("menu_item_food_apple_add")) {
 			result = "§7Nouriture : §a+5";
+		}else if(MessageID.equals("menu_item_food_bread_add")) {
+			result = "§7Nouriture : §a+10";
+		}else if(MessageID.equals("menu_item_food_bread")) {
+			result = "§ePain";
+		}else if(MessageID.equals("menu_item_food_bread_no")) {
+			result = "§6Pain";
+		}else if(MessageID.equals("menu_item_food_bread_pay")) {
+			result = "§eAchetable pour §62 or";
+		}else if(MessageID.equals("menu_item_food_bread_pay_no")) {
+			result = "§cIl te faut §62 or";
+		}else if(MessageID.equals("menu_item_food_posses")) {
+			result = "§7Possédé : §r";
+		}else if(MessageID.equals("menu_item_food_carrot_add")) {
+			result = "§7Nouriture : §a+15";
+		}else if(MessageID.equals("menu_item_food_carrot")) {
+			result = "§eCarotte";
+		}else if(MessageID.equals("menu_item_food_carrot_no")) {
+			result = "§6Carotte";
+		}else if(MessageID.equals("menu_item_food_carrot_pay")) {
+			result = "§eAchetable pour §63 or";
+		}else if(MessageID.equals("menu_item_food_carrot_pay_no")) {
+			result = "§cIl te faut §63 or";
+		}else if(MessageID.equals("player_pet_levelup")) {
+			result = "§aTon animal est monté de niveau !";
+		}else if(MessageID.equals("player_pet_xexercise")) {
+			result = "§cTon animal est fatigué !";
+		}else if(MessageID.equals("player_pet_xhunger")) {
+			result = "§cTon animal a faim !";
+		}else if(MessageID.equals("player_pet_xthirst")) {
+			result = "§cTon animal a soif !";
 		}
 		
 		return result;

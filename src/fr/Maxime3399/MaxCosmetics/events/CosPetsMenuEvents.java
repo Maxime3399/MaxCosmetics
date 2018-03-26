@@ -57,12 +57,11 @@ public class CosPetsMenuEvents implements Listener {
 							p.closeInventory();
 						}else {
 							if(PetsManager.havePet(mp.getInvData())) {
-								PetsManager.removePet(mp.getInvData());
+								PetsList.removePet(mp.getInvData());
 								mp.getInvData().getWorld().playSound(mp.getInvData().getLocation(), Sound.HORSE_GALLOP, 3, 1);
 								CosPetsMenu.openMenu(p, mp.getInvData());
-								mpd.setEnable(mpd.getEnable().replaceAll("pet_silverfish", ""));
 							}else {
-								if(mpd.getPet_silverfish_hunger() < 10 && mp.getPet_silverfish_thirst() < 10) {
+								if(mpd.getPet_silverfish_hunger() < 5 || mp.getPet_silverfish_thirst() < 5 || mpd.getPet_silverfish_exercise() >= 95) {
 									p.sendMessage(MessageUtils.getString("player_pet_spawn_bar"));
 									p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
 								}else {
@@ -74,7 +73,7 @@ public class CosPetsMenuEvents implements Listener {
 							}
 						}
 					}else {
-						if(mpd.getGold() >= 10) {
+						if(mpd.getGold() >= 20) {
 							ConfirmMenu.confirm(p);
 							new BukkitRunnable() {
 								@Override
@@ -85,7 +84,7 @@ public class CosPetsMenuEvents implements Listener {
 										Bukkit.getScheduler().scheduleSyncDelayedTask(MainClass.getInstance(), new Runnable() {
 											@Override
 											public void run() {
-												mpd.setGold(mpd.getGold()-10);
+												mpd.setGold(mpd.getGold()-20);
 												mpd.setPet_silverfish(true);
 												CosPetsMenu.openMenu(p, mp.getInvData());
 												p.sendMessage(MessageUtils.getString("player_pay_success"));

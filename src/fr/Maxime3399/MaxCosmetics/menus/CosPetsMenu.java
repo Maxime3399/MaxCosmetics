@@ -43,7 +43,7 @@ public class CosPetsMenu {
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_thirst")+PetsList.statusColor(mpd.getPet_silverfish_thirst())+mpd.getPet_silverfish_thirst()+"§8/§r100");
 			ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_exercise")+PetsList.statusColor(mpd.getPet_silverfish_exercise())+mpd.getPet_silverfish_exercise()+"§8/§r100");
 			ALsilverfish.add(" ");
-			if(mpd.getPet_silverfish_hunger() < 10 && mpd.getPet_silverfish_thirst() < 5) {
+			if(mpd.getPet_silverfish_hunger() < 5 || mpd.getPet_silverfish_thirst() < 5 || mpd.getPet_silverfish_exercise() >= 95) {
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_bar_1"));
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_bar_2"));
 				ALsilverfish.add(" ");
@@ -64,7 +64,7 @@ public class CosPetsMenu {
 		}else {
 			ALsilverfish.add(MessageUtils.getString("menu_item_found"));
 			ALsilverfish.add(" ");
-			if(mpd.getGold() >= 10) {
+			if(mpd.getGold() >= 20) {
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_silverfish_pay"));
 			}else {
 				ALsilverfish.add(MessageUtils.getString("menu_item_cos_pets_silverfish_pay_no"));

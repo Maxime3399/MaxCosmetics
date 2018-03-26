@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.Maxime3399.MaxCosmetics.commands.CommandMccmd;
 import fr.Maxime3399.MaxCosmetics.custom.Pet;
+import fr.Maxime3399.MaxCosmetics.list.PetsList;
 import fr.Maxime3399.MaxCosmetics.managers.EventsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
@@ -48,6 +49,7 @@ public class MainClass extends JavaPlugin{
 						"  `gold` int(255) NOT NULL,\r\n" + 
 						"  `lootbox` varchar(255) NOT NULL,\r\n" + 
 						"  `enable` varchar(255) NOT NULL,\r\n" + 
+						"  `last_connect` varchar(255) NOT NULL,\r\n" + 
 						"  `food_apple` int(255) NOT NULL,\r\n" + 
 						"  `food_bread` int(255) NOT NULL,\r\n" + 
 						"  `food_carrot` int(255) NOT NULL,\r\n" + 
@@ -102,6 +104,11 @@ public class MainClass extends JavaPlugin{
 					EventsManager.registerEvents();
 					PetsManager.startScheduler();
 					MessageUtils.sendConsoleMessage("console_load_success");
+					for(Player pls : Bukkit.getOnlinePlayers()) {
+						
+						PetsList.spawnPet(pls);
+						
+					}
 					
 				}else {
 					

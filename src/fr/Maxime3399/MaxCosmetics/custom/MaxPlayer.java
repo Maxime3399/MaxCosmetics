@@ -11,6 +11,7 @@ public class MaxPlayer {
 	private int gold;
 	private String lootboox;
 	private String enable;
+	private String last_connect;
 	
 	//System
 	private Player invData;
@@ -81,6 +82,7 @@ public class MaxPlayer {
 		this.setGold(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "gold"));
 		this.setLootboox(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "lootbox"));
 		this.setEnable(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "enable"));
+		this.setLast_connect(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "last_connect"));
 		
 		//System
 		this.setInvData(p);
@@ -150,6 +152,7 @@ public class MaxPlayer {
 		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "gold", gold);
 		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "lootbox", lootboox);
 		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "enable", enable);
+		MySQLUtils.setString("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "last_connect", last_connect);
 		
 		//Food
 		MySQLUtils.setInt("maxcosmetics_players", "uuid", player.getUniqueId().toString(), "food_apple", food_appple);
@@ -238,6 +241,14 @@ public class MaxPlayer {
 
 	public void setEnable(String enable) {
 		this.enable = enable;
+	}
+
+	public String getLast_connect() {
+		return last_connect;
+	}
+
+	public void setLast_connect(String last_connect) {
+		this.last_connect = last_connect;
 	}
 
 	public Player getInvData() {

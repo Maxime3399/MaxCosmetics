@@ -1,5 +1,7 @@
 package fr.Maxime3399.MaxCosmetics.list;
 
+import java.util.ArrayList;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Silverfish;
@@ -9,6 +11,16 @@ import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 
 public class PetsList {
+	
+	public static ArrayList<String> getPets(){
+		
+		ArrayList<String> result = new ArrayList<>();
+		
+		result.add("pet_silverfish");
+		
+		return result;
+		
+	}
 	
 	public static int getCount(Player p) {
 		
@@ -44,10 +56,52 @@ public class PetsList {
 		
 	}
 	
+	public static int getPetExp(MaxPlayer mp, String pet) {
+		
+		int result = 0;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			result = mp.getPet_silverfish_exp();
+		}
+		
+		return result;
+		
+	}
+	
+	public static void setPetExp(MaxPlayer mp, String pet, int value) {
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_exp(value);
+		}
+		
+	}
+	
+	public static int getPetLevel(MaxPlayer mp, String pet) {
+		
+		int result = 0;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			result = mp.getPet_silverfish_level();
+		}
+		
+		return result;
+		
+	}
+	
+	public static void setPetLevel(MaxPlayer mp, String pet, int value) {
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_level(value);
+		}
+		
+	}
+	
 	public static void setPetHunger(MaxPlayer mp, String pet, int value) {
 		
 		if(value > 100) {
 			value = 100;
+		}else if(value < 0) {
+			value = 0;
 		}
 		
 		if(pet.equalsIgnoreCase("pet_silverfish")) {
@@ -58,8 +112,28 @@ public class PetsList {
 	
 	public static void setPetThirst(MaxPlayer mp, String pet, int value) {
 		
+		if(value > 100) {
+			value = 100;
+		}else if(value < 0) {
+			value = 0;
+		}
+		
 		if(pet.equalsIgnoreCase("pet_silverfish")) {
 			mp.setPet_silverfish_thirst(value);
+		}
+		
+	}
+	
+	public static void setPetExercise(MaxPlayer mp, String pet, int value) {
+		
+		if(value > 100) {
+			value = 100;
+		}else if(value < 0) {
+			value = 0;
+		}
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			mp.setPet_silverfish_exercise(value);
 		}
 		
 	}
@@ -88,13 +162,36 @@ public class PetsList {
 		
 	}
 	
+	public static int getPetExercise(MaxPlayer mp, String pet) {
+		
+		int result = 0;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			result = mp.getPet_silverfish_exercise();
+		}
+		
+		return result;
+		
+	}
+	
 	public static void spawnPet(Player p) {
 		
 		MaxPlayer mp = PlayersManager.getMaxPlayer(p);
 		
 		if(mp.getEnable().contains("pet_silverfish")) {
 			Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
-			PetsManager.addPet(en, mp.getPet_silverfish_name(), p, mp.getPet_silverfish_level());
+			PetsManager.addPet(en, mp.getPet_silverfish_name(), p, mp.getPet_silverfish_level(), "pet_silverfish");
+		}
+		
+	}
+	
+	public static void removePet(Player p) {
+		
+		MaxPlayer mp = PlayersManager.getMaxPlayer(p);
+		PetsManager.removePet(p);
+		
+		if(mp.getEnable().contains("pet_silverfish")) {
+			mp.setEnable(mp.getEnable().replaceAll("pet_silverfish", ""));
 		}
 		
 	}
