@@ -100,10 +100,10 @@ public class PetsManager {
 						
 						Pet pet = PetsManager.getPlayerPet(pls);
 						pet.setDelay(pet.getDelay()+1);
+						MaxPlayer mp = PlayersManager.getMaxPlayer(pls);
 						
 						if(pet.getDelay() >= 1200) {
 							
-							MaxPlayer mp = PlayersManager.getMaxPlayer(pls);
 							PetsList.setPetExp(mp, pet.getType(), PetsList.getPetExp(mp, pet.getType())+1);
 							PetsList.setPetHunger(mp, pet.getType(), PetsList.getPetHunger(mp, pet.getType())-1);
 							PetsList.setPetExercise(mp, pet.getType(), PetsList.getPetExercise(mp, pet.getType())+1);
@@ -122,25 +122,25 @@ public class PetsManager {
 							
 							pet.setDelay(0);
 							
-							if(PetsList.getPetExercise(mp, pet.getType()) >= 100) {
-								
-								PetsList.removePet(pls);
-								pls.sendMessage(MessageUtils.getString("player_pet_xexercise"));
-								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
-								
-							}else if(PetsList.getPetHunger(mp, pet.getType()) == 0) {
-								
-								PetsList.removePet(pls);
-								pls.sendMessage(MessageUtils.getString("player_pet_xhunger"));
-								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
-								
-							}else if(PetsList.getPetThirst(mp, pet.getType()) == 0) {
-								
-								PetsList.removePet(pls);
-								pls.sendMessage(MessageUtils.getString("player_pet_xthirst"));
-								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
-								
-							}
+						}
+						
+						if(PetsList.getPetExercise(mp, pet.getType()) >= 100) {
+							
+							PetsList.removePet(pls);
+							pls.sendMessage(MessageUtils.getString("player_pet_xexercise"));
+							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+							
+						}else if(PetsList.getPetHunger(mp, pet.getType()) == 0) {
+							
+							PetsList.removePet(pls);
+							pls.sendMessage(MessageUtils.getString("player_pet_xhunger"));
+							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+							
+						}else if(PetsList.getPetThirst(mp, pet.getType()) == 0) {
+							
+							PetsList.removePet(pls);
+							pls.sendMessage(MessageUtils.getString("player_pet_xthirst"));
+							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
 							
 						}
 						

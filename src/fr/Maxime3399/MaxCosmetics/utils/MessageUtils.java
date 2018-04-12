@@ -101,7 +101,9 @@ public class MessageUtils {
 		}else if(MessageID.equals("menu_item_food_click_eat_no")) {
 			result = "§c§mClique pour donner";
 		}else if(MessageID.equals("menu_item_food_nohunger")) {
-			result = "§cTon animal a assez mangé !";
+			result = "§c§oTon animal a assez mangé !";
+		}else if(MessageID.equals("menu_item_drink_nothirst")) {
+			result = "§c§oTon animal n'a pas soif !";
 		}else if(MessageID.equals("menu_item_get")) {
 			result = "§7Obtenable dans un §bCoffre mystère";
 		}else if(MessageID.equals("menu_item_food_apple_pay")) {
@@ -110,6 +112,8 @@ public class MessageUtils {
 			result = "§cIl te faut §61 or";
 		}else if(MessageID.equals("player_hunger_max")) {
 			result = "§cTon animal a assez mangé !";
+		}else if(MessageID.equals("player_thirst_max")) {
+			result = "§cTon animal n'a pas soif !";
 		}else if(MessageID.equals("menu_item_food_apple_add")) {
 			result = "§7Nouriture : §a+5";
 		}else if(MessageID.equals("menu_item_food_bread_add")) {
@@ -142,6 +146,156 @@ public class MessageUtils {
 			result = "§cTon animal a faim !";
 		}else if(MessageID.equals("player_pet_xthirst")) {
 			result = "§cTon animal a soif !";
+		}else if(MessageID.equals("menu_item_food_potato_add")) {
+			result = "§7Nouriture : §a+20";
+		}else if(MessageID.equals("menu_item_food_potato")) {
+			result = "§ePatate";
+		}else if(MessageID.equals("menu_item_food_potato_no")) {
+			result = "§6Patate";
+		}else if(MessageID.equals("menu_item_food_potato_pay")) {
+			result = "§eAchetable pour §64 or";
+		}else if(MessageID.equals("menu_item_food_potato_pay_no")) {
+			result = "§cIl te faut §64 or";
+		}else if(MessageID.equals("menu_item_food_melon_add")) {
+			result = "§7Nouriture : §a+25";
+		}else if(MessageID.equals("menu_item_food_melon")) {
+			result = "§eMelon";
+		}else if(MessageID.equals("menu_item_food_melon_no")) {
+			result = "§6Melon";
+		}else if(MessageID.equals("menu_item_food_melon_pay")) {
+			result = "§eAchetable pour §65 or";
+		}else if(MessageID.equals("menu_item_food_melon_pay_no")) {
+			result = "§cIl te faut §65 or";
+		}else if(MessageID.equals("menu_item_food_fish_add")) {
+			result = "§7Nouriture : §a+30";
+		}else if(MessageID.equals("menu_item_food_fish")) {
+			result = "§ePoisson";
+		}else if(MessageID.equals("menu_item_food_fish_no")) {
+			result = "§6Poisson";
+		}else if(MessageID.equals("menu_item_food_fish_pay")) {
+			result = "§eAchetable pour §66 or";
+		}else if(MessageID.equals("menu_item_food_fish_pay_no")) {
+			result = "§cIl te faut §66 or";
+		}else if(MessageID.equals("menu_item_food_grass_add")) {
+			result = "§7Nouriture : §a+35";
+		}else if(MessageID.equals("menu_item_food_grass")) {
+			result = "§eHerbe";
+		}else if(MessageID.equals("menu_item_food_grass_no")) {
+			result = "§6Herbe";
+		}else if(MessageID.equals("menu_item_food_grass_pay")) {
+			result = "§eAchetable pour §67 or";
+		}else if(MessageID.equals("menu_item_food_grass_pay_no")) {
+			result = "§cIl te faut §67 or";
+		}else if(MessageID.equals("menu_item_food_mushroom_b_add")) {
+			result = "§7Nouriture : §a+40";
+		}else if(MessageID.equals("menu_item_food_mushroom_b")) {
+			result = "§eChampignon marron";
+		}else if(MessageID.equals("menu_item_food_mushroom_b_no")) {
+			result = "§6Champignon marron";
+		}else if(MessageID.equals("menu_item_food_mushroom_b_pay")) {
+			result = "§eAchetable pour §68 or";
+		}else if(MessageID.equals("menu_item_food_mushroom_b_pay_no")) {
+			result = "§cIl te faut §68 or";
+		}else if(MessageID.equals("menu_item_food_mushroom_r_add")) {
+			result = "§7Nouriture : §a+45";
+		}else if(MessageID.equals("menu_item_food_mushroom_r")) {
+			result = "§eChampignon rouge";
+		}else if(MessageID.equals("menu_item_food_mushroom_r_no")) {
+			result = "§6Champignon rouge";
+		}else if(MessageID.equals("menu_item_food_mushroom_r_pay")) {
+			result = "§eAchetable pour §69 or";
+		}else if(MessageID.equals("menu_item_food_mushroom_r_pay_no")) {
+			result = "§cIl te faut §69 or";
+		}else if(MessageID.equals("menu_item_food_flower_add")) {
+			result = "§7Nouriture : §a+50";
+		}else if(MessageID.equals("menu_item_food_flower")) {
+			result = "§eFleur";
+		}else if(MessageID.equals("menu_item_food_flower_no")) {
+			result = "§6Fleur";
+		}else if(MessageID.equals("menu_item_food_flower_pay")) {
+			result = "§eAchetable pour §610 or";
+		}else if(MessageID.equals("menu_item_food_flower_pay_no")) {
+			result = "§cIl te faut §610 or";
+		}else if(MessageID.equals("menu_item_food_wheat_add")) {
+			result = "§7Nouriture : §a+55";
+		}else if(MessageID.equals("menu_item_food_wheat")) {
+			result = "§eBlé";
+		}else if(MessageID.equals("menu_item_food_wheat_no")) {
+			result = "§6Blé";
+		}else if(MessageID.equals("menu_item_food_wheat_pay")) {
+			result = "§eAchetable pour §611 or";
+		}else if(MessageID.equals("menu_item_food_wheat_pay_no")) {
+			result = "§cIl te faut §611 or";
+		}else if(MessageID.equals("menu_item_food_cake_add")) {
+			result = "§7Nouriture : §a+60";
+		}else if(MessageID.equals("menu_item_food_cake")) {
+			result = "§eGâteau";
+		}else if(MessageID.equals("menu_item_food_cake_no")) {
+			result = "§6Gâteau";
+		}else if(MessageID.equals("menu_item_food_cake_pay")) {
+			result = "§eAchetable pour §612 or";
+		}else if(MessageID.equals("menu_item_food_cake_pay_no")) {
+			result = "§cIl te faut §612 or";
+		}else if(MessageID.equals("menu_item_food_cookie_add")) {
+			result = "§7Nouriture : §a+65";
+		}else if(MessageID.equals("menu_item_food_cookie")) {
+			result = "§eCookie";
+		}else if(MessageID.equals("menu_item_food_cookie_no")) {
+			result = "§6Cookie";
+		}else if(MessageID.equals("menu_item_food_cookie_pay")) {
+			result = "§eAchetable pour §613 or";
+		}else if(MessageID.equals("menu_item_food_cookie_pay_no")) {
+			result = "§cIl te faut §613 or";
+		}else if(MessageID.equals("menu_item_food_pie_add")) {
+			result = "§7Nouriture : §a+70";
+		}else if(MessageID.equals("menu_item_food_pie")) {
+			result = "§eTarte à la citrouille";
+		}else if(MessageID.equals("menu_item_food_pie_no")) {
+			result = "§6Tarte à la citrouille";
+		}else if(MessageID.equals("menu_item_food_pie_pay")) {
+			result = "§eAchetable pour §614 or";
+		}else if(MessageID.equals("menu_item_food_pie_pay_no")) {
+			result = "§cIl te faut §614 or";
+		}else if(MessageID.equals("menu_item_food_golden_add")) {
+			result = "§7Nouriture : §a+75";
+		}else if(MessageID.equals("menu_item_food_golden")) {
+			result = "§ePomme d'or";
+		}else if(MessageID.equals("menu_item_food_golden_no")) {
+			result = "§6Pomme d'or";
+		}else if(MessageID.equals("menu_item_food_golden_pay")) {
+			result = "§eAchetable pour §615 or";
+		}else if(MessageID.equals("menu_item_food_golden_pay_no")) {
+			result = "§cIl te faut §615 or";
+		}else if(MessageID.equals("menu_item_drink_water_add")) {
+			result = "§7Soif : §a+20";
+		}else if(MessageID.equals("menu_item_drink_water")) {
+			result = "§eEau";
+		}else if(MessageID.equals("menu_item_drink_water_no")) {
+			result = "§6Eau";
+		}else if(MessageID.equals("menu_item_drink_water_pay")) {
+			result = "§eAchetable pour §63 or";
+		}else if(MessageID.equals("menu_item_drink_water_pay_no")) {
+			result = "§cIl te faut §63 or";
+		}else if(MessageID.equals("menu_item_drink_milk_add")) {
+			result = "§7Soif : §a+40";
+		}else if(MessageID.equals("menu_item_drink_milk")) {
+			result = "§eLait";
+		}else if(MessageID.equals("menu_item_drink_milk_no")) {
+			result = "§6Lait";
+		}else if(MessageID.equals("menu_item_drink_milk_pay")) {
+			result = "§eAchetable pour §66 or";
+		}else if(MessageID.equals("menu_item_drink_milk_pay_no")) {
+			result = "§cIl te faut §66 or";
+		}else if(MessageID.equals("menu_item_drink_lava_add")) {
+			result = "§7Soif : §a+60";
+		}else if(MessageID.equals("menu_item_drink_lava")) {
+			result = "§eLave";
+		}else if(MessageID.equals("menu_item_drink_lava_no")) {
+			result = "§6Lave";
+		}else if(MessageID.equals("menu_item_drink_lava_pay")) {
+			result = "§eAchetable pour §69 or";
+		}else if(MessageID.equals("menu_item_drink_lava_pay_no")) {
+			result = "§cIl te faut §69 or";
 		}
 		
 		return result;

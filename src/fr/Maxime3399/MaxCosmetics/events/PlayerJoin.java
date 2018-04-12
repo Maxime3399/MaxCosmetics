@@ -30,6 +30,8 @@ public class PlayerJoin implements Listener {
 		Date date = new Date();
 		if(!mp.getLast_connect().equalsIgnoreCase(dateFormat.format(date))) {
 			
+			mp.setLast_connect(dateFormat.format(date));
+			
 			for(String pets : PetsList.getPets()) {
 				
 				PetsList.setPetExercise(mp, pets, 0);
