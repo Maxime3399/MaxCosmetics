@@ -20,6 +20,7 @@ import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
 import fr.Maxime3399.MaxCosmetics.menus.CosPetsMenu;
 import fr.Maxime3399.MaxCosmetics.menus.FoodMenu;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
+import fr.Maxime3399.MaxCosmetics.utils.StringUtils;
 
 public class CosPetsMenuEvents implements Listener {
 	
@@ -37,14 +38,14 @@ public class CosPetsMenuEvents implements Listener {
 				return;
 				
 			}else {
-				
+
 				String item = e.getCurrentItem().getItemMeta().getDisplayName();
 				Player p = (Player) e.getWhoClicked();
 				MaxPlayer mp = PlayersManager.getMaxPlayer(p);
 				MaxPlayer mpd = PlayersManager.getMaxPlayer(mp.getInvData());
 				
-				if(item.equalsIgnoreCase(MessageUtils.getString("menu_item_cos_pets_silverfish"))) {
-					
+				if(item.equalsIgnoreCase(StringUtils.getRarityColor(PetsList.getConfigRarity("pet_silverfish"))+MessageUtils.getString("menu_item_cos_pets_silverfish"))) {
+
 					if(mpd.isPet_silverfish()) {
 						if(e.getClick() == ClickType.RIGHT) {
 							FoodMenu.openMenu(p, mp.getInvData(), "pet_silverfish");
@@ -73,44 +74,49 @@ public class CosPetsMenuEvents implements Listener {
 							}
 						}
 					}else {
-						if(mpd.getGold() >= 20) {
-							ConfirmMenu.confirm(p);
-							new BukkitRunnable() {
-								@Override
-								public void run() {
-									if(ConfirmMenu.getPlayer(p) == 1) {
-										ConfirmMenu.removePlayer(p);
-										this.cancel();
-										Bukkit.getScheduler().scheduleSyncDelayedTask(MainClass.getInstance(), new Runnable() {
-											@Override
-											public void run() {
-												mpd.setGold(mpd.getGold()-20);
-												mpd.setPet_silverfish(true);
-												CosPetsMenu.openMenu(p, mp.getInvData());
-												p.sendMessage(MessageUtils.getString("player_pay_success"));
-												p.playSound(p.getLocation(), Sound.NOTE_PLING, 100, 2);
-											}
-										}, 1);
-									}else if(ConfirmMenu.getPlayer(p) == 2) {
-										ConfirmMenu.removePlayer(p);
-										this.cancel();
-										Bukkit.getScheduler().scheduleSyncDelayedTask(MainClass.getInstance(), new Runnable() {
-											@Override
-											public void run() {
-												CosPetsMenu.openMenu(p, mp.getInvData());
-												p.sendMessage(MessageUtils.getString("player_pay_cancell"));
-												p.playSound(p.getLocation(), Sound.VILLAGER_DEATH, 100, 1);
-											}
-										}, 1);
+						if(PetsList.getConfigPermission("pet_silverfish").equalsIgnoreCase("#####")) {
+							if(mpd.getGold() >= PetsList.getConfigCost("pet_silverfish")) {
+								ConfirmMenu.confirm(p);
+								new BukkitRunnable() {
+									@Override
+									public void run() {
+										if(ConfirmMenu.getPlayer(p) == 1) {
+											ConfirmMenu.removePlayer(p);
+											this.cancel();
+											Bukkit.getScheduler().scheduleSyncDelayedTask(MainClass.getInstance(), new Runnable() {
+												@Override
+												public void run() {
+													mpd.setGold(mpd.getGold()-PetsList.getConfigCost("pet_silverfish"));
+													mpd.setPet_silverfish(true);
+													CosPetsMenu.openMenu(p, mp.getInvData());
+													p.sendMessage(MessageUtils.getString("player_pay_success"));
+													p.playSound(p.getLocation(), Sound.NOTE_PLING, 100, 2);
+												}
+											}, 1);
+										}else if(ConfirmMenu.getPlayer(p) == 2) {
+											ConfirmMenu.removePlayer(p);
+											this.cancel();
+											Bukkit.getScheduler().scheduleSyncDelayedTask(MainClass.getInstance(), new Runnable() {
+												@Override
+												public void run() {
+													CosPetsMenu.openMenu(p, mp.getInvData());
+													p.sendMessage(MessageUtils.getString("player_pay_cancell"));
+													p.playSound(p.getLocation(), Sound.VILLAGER_DEATH, 100, 1);
+												}
+											}, 1);
+										}
 									}
-								}
-							}.runTaskTimerAsynchronously(MainClass.getInstance(), 1, 1);
-						}else {
-							if(mp == mpd) {
-								p.sendMessage(MessageUtils.getString("player_you_pay_no"));
+								}.runTaskTimerAsynchronously(MainClass.getInstance(), 1, 1);
 							}else {
-								p.sendMessage(MessageUtils.getString("player_other_pay_no"));
+								if(mp == mpd) {
+									p.sendMessage(MessageUtils.getString("player_you_pay_no"));
+								}else {
+									p.sendMessage(MessageUtils.getString("player_other_pay_no"));
+								}
+								p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
 							}
+						}else {
+							p.sendMessage(PetsList.getConfigMessage("pet_silverfish"));
 							p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
 						}
 					}

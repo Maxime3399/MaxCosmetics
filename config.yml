@@ -6,3 +6,32 @@ Password: ""
 Database: ""
 Port: 3306
 UseSSL: false
+
+#========== EVENTS ==========
+
+NewYear: ""
+Easter: ""
+Summer: ""
+Halloween: ""
+Christmas: ""
+
+#========== COSMETICS ==========
+
+#~ Categories: Pets
+#
+#~ Tags:
+#~     Enable : {true, false}
+#~     Rarity : "{common, rare, epic, legendary}"
+#~     Cost: x
+#~     Type: "{classic, newyear, easter, summer, halloween, chrismas}"
+#~     Permission: "hello.exemple"
+#~     Lore: "&cYou don't have the permission"
+#~     Message: "&cYou don't have the permission !"
+#
+#~ <<<<< Exemples >>>>>>
+#
+#~ Pets:
+#~     pet_silverfish:
+#~         Rarity: "rare"
+#~         Cost: 230
+#~         Type: "newyear"

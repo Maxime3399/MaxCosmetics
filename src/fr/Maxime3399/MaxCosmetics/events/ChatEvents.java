@@ -52,6 +52,7 @@ public class ChatEvents implements Listener {
 							pets.setName(name);
 						}
 					}
+					mp.setMccmd(false);
 					
 				}
 				

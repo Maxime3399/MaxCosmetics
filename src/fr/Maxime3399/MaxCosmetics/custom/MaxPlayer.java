@@ -2,6 +2,7 @@ package fr.Maxime3399.MaxCosmetics.custom;
 
 import org.bukkit.entity.Player;
 
+import fr.Maxime3399.MaxCosmetics.list.PetsList;
 import fr.Maxime3399.MaxCosmetics.utils.MySQLUtils;
 
 public class MaxPlayer {
@@ -125,6 +126,13 @@ public class MaxPlayer {
 		this.setPet_silverfish_hunger(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish_hunger"));
 		this.setPet_silverfish_thirst(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish_thirst"));
 		this.setPet_silverfish_exercise(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_silverfish_exercise"));
+		if(!PetsList.getConfigPermission("pet_silverfish").equalsIgnoreCase("#####")) {
+			if(p.hasPermission(PetsList.getConfigPermission("pet_silverfish"))) {
+				this.setPet_silverfish(true);
+			}else {
+				this.setPet_silverfish(false);
+			}
+		}
 		
 		//Catblack pet
 		this.setPet_catblack(Boolean.valueOf(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblack")));
@@ -134,6 +142,13 @@ public class MaxPlayer {
 		this.setPet_catblack_hunger(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblack_hunger"));
 		this.setPet_catblack_thirst(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblack_thirst"));
 		this.setPet_catblack_exercise(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblack_exercise"));
+		if(!PetsList.getConfigPermission("pet_catblack").equalsIgnoreCase("#####")) {
+			if(p.hasPermission(PetsList.getConfigPermission("pet_catblack"))) {
+				this.setPet_catblack(true);
+			}else {
+				this.setPet_catblack(false);
+			}
+		}
 		
 		//Catblackbaby pet
 		this.setPet_catblackbaby(Boolean.valueOf(MySQLUtils.getString("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblackbaby")));
@@ -143,6 +158,13 @@ public class MaxPlayer {
 		this.setPet_catblackbaby_hunger(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblackbaby_hunger"));
 		this.setPet_catblackbaby_thirst(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblackbaby_thirst"));
 		this.setPet_catblackbaby_exercise(MySQLUtils.getInt("maxcosmetics_players", "uuid", p.getUniqueId().toString(), "pet_catblackbaby_exercise"));
+		if(!PetsList.getConfigPermission("pet_catblackbaby").equalsIgnoreCase("#####")) {
+			if(p.hasPermission(PetsList.getConfigPermission("pet_catblackbaby"))) {
+				this.setPet_catblackbaby(true);
+			}else {
+				this.setPet_catblackbaby(false);
+			}
+		}
 		
 	}
 	

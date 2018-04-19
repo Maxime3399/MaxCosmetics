@@ -16,6 +16,8 @@ public class MessageUtils {
 			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §cLes table n'ont pas pu êres crées dans la base de données !");
 		}else if(MessageID.equals("console_cmd_error")) {
 			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §cCette commande ne peut pas être utilisée par la console !");
+		}else if(MessageID.equals("console_config")) {
+			Bukkit.getConsoleSender().sendMessage("§6§l[§r§3Max§9Cosmetics§6§l]§r §cLe fichier de configuration a été créé ! Merci de configurer le plugin.");
 		}
 		
 	}
@@ -33,7 +35,7 @@ public class MessageUtils {
 		}else if(MessageID.equals("menu_name_cos_pets")) {
 			result = "§8Animaux";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish")) {
-			result = "§aPoisson d'argent";
+			result = "Poisson d'argent";
 		}else if(MessageID.equals("menu_item_cos_pets_name")) {
 			result = "§7Nom : §r";
 		}else if(MessageID.equals("menu_item_cos_pets_level")) {
@@ -56,12 +58,10 @@ public class MessageUtils {
 			result = "§bClique droit §7pour nourir";
 		}else if(MessageID.equals("menu_item_cos_pets_middle")) {
 			result = "§eClique molette §7pour renommer";
-		}else if(MessageID.equals("menu_item_found")) {
-			result = "§7Trouvable dans un §bCoffre mystère";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay")) {
-			result = "§eAchetable pour §620 or";
+			result = "§eAchetable pour §6#COST# or";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish_pay_no")) {
-			result = "§cIl te faut §620 or";
+			result = "§cIl te faut §6#COST# or";
 		}else if(MessageID.equals("player_other_pay_no")) {
 			result = "§cCe joueur n'as pas assez d'§6or§c !";
 		}else if(MessageID.equals("player_you_pay_no")) {
@@ -296,6 +296,20 @@ public class MessageUtils {
 			result = "§eAchetable pour §69 or";
 		}else if(MessageID.equals("menu_item_drink_lava_pay_no")) {
 			result = "§cIl te faut §69 or";
+		}else if(MessageID.equals("menu_item_found")) {
+			result = "§7Trouvable dans un #BOX#";
+		}else if(MessageID.equals("box_classic")) {
+			result = "§bCoffre mystère";
+		}else if(MessageID.equals("box_newyear")) {
+			result = "§eCoffre de nouvel an";
+		}else if(MessageID.equals("box_easter")) {
+			result = "§2Coffre de pâques";
+		}else if(MessageID.equals("box_summer")) {
+			result = "§6Coffre de l'été";
+		}else if(MessageID.equals("box_halloween")) {
+			result = "§5Coffre d'halloween";
+		}else if(MessageID.equals("box_christmas")) {
+			result = "§cCoffre de noël";
 		}
 		
 		return result;

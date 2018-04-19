@@ -6,17 +6,112 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Silverfish;
 
+import fr.Maxime3399.MaxCosmetics.MainClass;
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
 import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 
 public class PetsList {
 	
+	public static String getConfigMessage(String pet) {
+		
+		String result = "§cYou don't have the permission !";
+		
+		if(MainClass.getInstance().getConfig().isString("Pets."+pet+".Message")) {
+			result = MainClass.getInstance().getConfig().getString("Pets."+pet+".Message");
+		}
+		
+		return result.replaceAll("&", "§");
+		
+	}
+	
+	public static String getConfigLore(String pet) {
+		
+		String result = "§cYou don't have the permission";
+		
+		if(MainClass.getInstance().getConfig().isString("Pets."+pet+".Lore")) {
+			result = MainClass.getInstance().getConfig().getString("Pets."+pet+".Lore");
+		}
+		
+		return result.replaceAll("&", "§");
+		
+	}
+	
+	public static String getConfigPermission(String pet) {
+		
+		String result = "#####";
+		
+		if(MainClass.getInstance().getConfig().isString("Pets."+pet+".Permission")) {
+			result = MainClass.getInstance().getConfig().getString("Pets."+pet+".Permission");
+		}
+		
+		return result;
+		
+	}
+	
+	public static String getConfigType(String pet) {
+		
+		String result = "common";
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			if(MainClass.getInstance().getConfig().isString("Pets."+pet+".Type")) {
+				result = MainClass.getInstance().getConfig().getString("Pets."+pet+".Type");
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	public static int getConfigCost(String pet) {
+		
+		int result = 30;
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			if(MainClass.getInstance().getConfig().isInt("Pets."+pet+".Cost")) {
+				result = MainClass.getInstance().getConfig().getInt("Pets."+pet+".Cost");
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	public static String getConfigRarity(String pet) {
+		
+		String result = "common";
+		
+		if(pet.equalsIgnoreCase("pet_silverfish")) {
+			if(MainClass.getInstance().getConfig().isString("Pets."+pet+".Rarity")) {
+				result = MainClass.getInstance().getConfig().getString("Pets."+pet+".Rarity");
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	public static boolean getConfigEnable(String pet) {
+		
+		boolean result = true;
+		
+		if(MainClass.getInstance().getConfig().isBoolean("Pets."+pet+".Enable")) {
+			
+			result = MainClass.getInstance().getConfig().getBoolean("Pets."+pet+".Enable");
+			
+		}
+		
+		return result;
+		
+	}
+	
 	public static ArrayList<String> getPets(){
 		
 		ArrayList<String> result = new ArrayList<>();
 		
-		result.add("pet_silverfish");
+		if(getConfigEnable("pet_silverfish")) {
+			result.add("pet_silverfish");
+		}
 		
 		return result;
 		
@@ -27,13 +122,7 @@ public class PetsList {
 		int result = 0;
 		MaxPlayer mp = PlayersManager.getMaxPlayer(p);
 		
-		if(mp.isPet_silverfish()) {
-			result++;
-		}
-		if(mp.isPet_catblack()) {
-			result++;
-		}
-		if(mp.isPet_catblackbaby()) {
+		if(mp.isPet_silverfish() && getConfigEnable("pet_silverfish")) {
 			result++;
 		}
 		
@@ -43,7 +132,8 @@ public class PetsList {
 	
 	public static int getMax() {
 		
-		int result = 3;
+		int result = getPets().size();
+		
 		return result;
 		
 	}
@@ -179,8 +269,12 @@ public class PetsList {
 		MaxPlayer mp = PlayersManager.getMaxPlayer(p);
 		
 		if(mp.getEnable().contains("pet_silverfish")) {
-			Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
-			PetsManager.addPet(en, mp.getPet_silverfish_name(), p, mp.getPet_silverfish_level(), "pet_silverfish");
+			if(getConfigEnable("pet_silverfish")) {
+				Entity en = mp.getInvData().getWorld().spawn(mp.getInvData().getLocation(), Silverfish.class);
+				PetsManager.addPet(en, mp.getPet_silverfish_name(), p, mp.getPet_silverfish_level(), "pet_silverfish");
+			}else {
+				removePet(p);
+			}
 		}
 		
 	}
