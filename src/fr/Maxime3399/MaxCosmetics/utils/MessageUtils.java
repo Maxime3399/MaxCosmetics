@@ -34,6 +34,8 @@ public class MessageUtils {
 			result = "§8Cosmétiques";
 		}else if(MessageID.equals("menu_name_cos_pets")) {
 			result = "§8Animaux";
+		}else if(MessageID.equals("menu_name_exercise")) {
+			result = "§8Jouets";
 		}else if(MessageID.equals("menu_item_cos_pets_silverfish")) {
 			result = "Poisson d'argent";
 		}else if(MessageID.equals("menu_item_cos_pets_name")) {
@@ -104,6 +106,8 @@ public class MessageUtils {
 			result = "§c§oTon animal a assez mangé !";
 		}else if(MessageID.equals("menu_item_drink_nothirst")) {
 			result = "§c§oTon animal n'a pas soif !";
+		}else if(MessageID.equals("menu_item_food_tired")) {
+			result = "§c§oTon animal a assez mangé !";
 		}else if(MessageID.equals("menu_item_get")) {
 			result = "§7Obtenable dans un §bCoffre mystère";
 		}else if(MessageID.equals("menu_item_food_apple_pay")) {
@@ -114,6 +118,8 @@ public class MessageUtils {
 			result = "§cTon animal a assez mangé !";
 		}else if(MessageID.equals("player_thirst_max")) {
 			result = "§cTon animal n'a pas soif !";
+		}else if(MessageID.equals("player_exercise_max")) {
+			result = "§cTon animal est fatigué !";
 		}else if(MessageID.equals("menu_item_food_apple_add")) {
 			result = "§7Nouriture : §a+5";
 		}else if(MessageID.equals("menu_item_food_bread_add")) {
@@ -310,8 +316,29 @@ public class MessageUtils {
 			result = "§5Coffre d'halloween";
 		}else if(MessageID.equals("box_christmas")) {
 			result = "§cCoffre de noël";
+		}else if(MessageID.equals("menu_item_back")) {
+			result = "§7§oRetour";
+		}else if(MessageID.equals("menu_item_back_lore_1")) {
+			result = "§3Clique §7pour revenir au";
+		}else if(MessageID.equals("menu_item_back_lore_2")) {
+			result = "§7menu précédent";
+		}else if(MessageID.equals("menu_item_gold")) {
+			result = "§6Or : #GOLD#";
+		}else if(MessageID.equals("player_no_pet")) {
+			result = "§cCe n'est pas ton annimal !";
+		}else if(MessageID.equals("menu_item_toy_ball_add_1")) {
+			result = "§7Exercice : §a+10";
+		}else if(MessageID.equals("menu_item_toy_ball_add_2")) {
+			result = "§7Expérience : §a+20";
+		}else if(MessageID.equals("menu_item_toy_ball")) {
+			result = "§eBalle";
+		}else if(MessageID.equals("menu_item_toy_ball_no")) {
+			result = "§6Balle";
+		}else if(MessageID.equals("menu_item_toy_ball_pay")) {
+			result = "§eAchetable pour §65 or";
+		}else if(MessageID.equals("menu_item_toy_ball_pay_no")) {
+			result = "§cIl te faut §65 or";
 		}
-		
 		return result;
 		
 	}

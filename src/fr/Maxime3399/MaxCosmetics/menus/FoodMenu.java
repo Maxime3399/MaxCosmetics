@@ -18,7 +18,7 @@ public class FoodMenu {
 	
 	public static void openMenu(Player open, Player data, String pet) {
 		
-		Inventory i = Bukkit.createInventory(null, 36, MessageUtils.getString("menu_name_food"));
+		Inventory i = Bukkit.createInventory(null, 45, MessageUtils.getString("menu_name_food"));
 		MaxPlayer mp = PlayersManager.getMaxPlayer(open);
 		mp.setInvData(data);
 		mp.setFoodpet(pet);
@@ -671,6 +671,32 @@ public class FoodMenu {
 		IMdlava.setLore(ALdlava);
 		ISdlava.setItemMeta(IMdlava);
 		i.setItem(20, ISdlava);
+		
+		ItemStack ISback = new ItemStack(Material.ARROW);
+		ItemMeta IMback = ISback.getItemMeta();
+		ArrayList<String> ALback = new ArrayList<>();
+		IMback.setDisplayName(MessageUtils.getString("menu_item_back"));
+		ALback.add(" ");
+		ALback.add(MessageUtils.getString("menu_item_back_lore_1"));
+		ALback.add(MessageUtils.getString("menu_item_back_lore_2"));
+		IMback.setLore(ALback);
+		ISback.setItemMeta(IMback);
+		i.setItem(44, ISback);
+		
+		ItemStack ISgold = new ItemStack(Material.GOLD_INGOT);
+		if(mpd.getGold() > 0) {
+			if(mpd.getGold() > 64) {
+				ISgold.setAmount(64);
+			}else {
+				ISgold.setAmount(mpd.getGold());
+			}
+		}else {
+			ISgold.setAmount(1);
+		}
+		ItemMeta IMgold = ISgold.getItemMeta();
+		IMgold.setDisplayName(MessageUtils.getString("menu_item_gold").replaceAll("#GOLD#", ""+mpd.getGold()));
+		ISgold.setItemMeta(IMgold);
+		i.setItem(40, ISgold);
 		
 		open.openInventory(i);
 		

@@ -14,6 +14,7 @@ import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
+import fr.Maxime3399.MaxCosmetics.menus.CosPetsMenu;
 import fr.Maxime3399.MaxCosmetics.menus.FoodMenu;
 import fr.Maxime3399.MaxCosmetics.utils.MessageUtils;
 
@@ -975,6 +976,9 @@ public class FoodMenuEvents implements Listener {
 						p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);
 					}
 					//======================
+				}else if(item.equalsIgnoreCase(MessageUtils.getString("menu_item_back"))) {
+					CosPetsMenu.openMenu(p, mp.getInvData());
+					p.playSound(p.getLocation(), Sound.CLICK, 100, 1);
 				}
 				
 			}
