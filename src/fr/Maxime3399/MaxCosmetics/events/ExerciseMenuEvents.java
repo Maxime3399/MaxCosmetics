@@ -10,8 +10,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.Maxime3399.MaxCosmetics.MainClass;
+import fr.Maxime3399.MaxCosmetics.actions.PetBallAction;
 import fr.Maxime3399.MaxCosmetics.custom.MaxPlayer;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
+import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.managers.PlayersManager;
 import fr.Maxime3399.MaxCosmetics.menus.ConfirmMenu;
 import fr.Maxime3399.MaxCosmetics.menus.ExerciseMenu;
@@ -46,6 +48,11 @@ public class ExerciseMenuEvents implements Listener {
 						PetsList.setPetExp(mp, mp.getFoodpet(), PetsList.getPetExp(mpd, mp.getFoodpet())+20);
 						p.playSound(p.getLocation(), Sound.NOTE_PLING, 100, 1);
 						p.closeInventory();
+						//Effect==============================
+						if(PetsManager.getPlayerPet(mp.getInvData()) != null){
+							PetBallAction.act(PetsManager.getPlayerPet(mp.getInvData()), mp.getInvData());
+						}
+						//=================================================
 					}else {
 						p.sendMessage(MessageUtils.getString("player_exercise_max"));
 						p.playSound(p.getLocation(), Sound.VILLAGER_NO, 100, 1);

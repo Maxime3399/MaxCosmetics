@@ -5,11 +5,13 @@ import java.io.File;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.Maxime3399.MaxCosmetics.actions.PetBallAction;
 import fr.Maxime3399.MaxCosmetics.commands.CommandMccmd;
 import fr.Maxime3399.MaxCosmetics.custom.Pet;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
@@ -30,6 +32,7 @@ public class MainClass extends JavaPlugin{
 		plugin = this;
 		PetsManager.use = true;
 		PlayersManager.use = true;
+		PetBallAction.use = true;
 		
 		if(VersionsManager.setupVersion()) {
 			
@@ -146,6 +149,12 @@ public class MainClass extends JavaPlugin{
 				PetsManager.removePet(PetsManager.getPlayerPet(pls));
 			}
 			PlayersManager.removePlayer(pls);
+			
+		}
+		
+		for(ArmorStand as : PetBallAction.balls) {
+			
+			as.remove();
 			
 		}
 		

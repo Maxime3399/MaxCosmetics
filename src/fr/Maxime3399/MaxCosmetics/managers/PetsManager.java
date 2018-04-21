@@ -124,39 +124,47 @@ public class PetsManager {
 							
 						}
 						
-						if(PetsList.getPetExercise(mp, pet.getType()) >= 100) {
+						if(pet.isCanDispawn()) {
 							
-							PetsList.removePet(pls);
-							pls.sendMessage(MessageUtils.getString("player_pet_xexercise"));
-							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
-							
-						}else if(PetsList.getPetHunger(mp, pet.getType()) == 0) {
-							
-							PetsList.removePet(pls);
-							pls.sendMessage(MessageUtils.getString("player_pet_xhunger"));
-							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
-							
-						}else if(PetsList.getPetThirst(mp, pet.getType()) == 0) {
-							
-							PetsList.removePet(pls);
-							pls.sendMessage(MessageUtils.getString("player_pet_xthirst"));
-							pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+							if(PetsList.getPetExercise(mp, pet.getType()) >= 100) {
+								
+								PetsList.removePet(pls);
+								pls.sendMessage(MessageUtils.getString("player_pet_xexercise"));
+								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+								
+							}else if(PetsList.getPetHunger(mp, pet.getType()) == 0) {
+								
+								PetsList.removePet(pls);
+								pls.sendMessage(MessageUtils.getString("player_pet_xhunger"));
+								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+								
+							}else if(PetsList.getPetThirst(mp, pet.getType()) == 0) {
+								
+								PetsList.removePet(pls);
+								pls.sendMessage(MessageUtils.getString("player_pet_xthirst"));
+								pls.playSound(pls.getLocation(), Sound.BAT_DEATH, 100, 2);
+								
+							}
 							
 						}
 						
-						if(pls.getLocation().distance(pet.getEntity().getLocation()) > 30) {
+						if(pet.isMoove()) {
 							
-							if(pls.isOnGround()) {
-								pet.getEntity().teleport(pls.getLocation());
+							if(pls.getLocation().distance(pet.getEntity().getLocation()) > 30) {
+								
+								if(pls.isOnGround()) {
+									pet.getEntity().teleport(pls.getLocation());
+								}
+								
+							}else if(pls.getLocation().distance(pet.getEntity().getLocation()) > 10) {
+								
+								VersionsManager.getVClass().entityMoove(pet.getEntity(), pls.getLocation(), 2);
+								
+							}else if(pls.getLocation().distance(pet.getEntity().getLocation()) > 1) {
+								
+								VersionsManager.getVClass().entityMoove(pet.getEntity(), pls.getLocation(), 1);
+								
 							}
-							
-						}else if(pls.getLocation().distance(pet.getEntity().getLocation()) > 10) {
-							
-							VersionsManager.getVClass().entityMoove(pet.getEntity(), pls.getLocation(), 2);
-							
-						}else if(pls.getLocation().distance(pet.getEntity().getLocation()) > 1) {
-							
-							VersionsManager.getVClass().entityMoove(pet.getEntity(), pls.getLocation(), 1);
 							
 						}
 						

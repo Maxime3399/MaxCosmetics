@@ -21,6 +21,8 @@ public class Pet {
 	private String type;
 	
 	private boolean stop;
+	private boolean moove;
+	private boolean canDispawn;
 	
 	public Pet(Entity e, String name, Player p, int lvl, String type) {
 		
@@ -32,6 +34,8 @@ public class Pet {
 		this.setDelay(0);
 		this.setType(type);
 		this.setStop(false);
+		this.setMoove(true);
+		this.setCanDispawn(true);
 		
 		e.setCustomName(PetsList.getLevelColor(lvl)+lvl+"§r "+name.replaceAll("&", "§"));
 		
@@ -70,7 +74,6 @@ public class Pet {
 			new BukkitRunnable() {
 				@Override
 				public void run() {
-					a.setRemainingAir(999);
 					a.setTarget(null);
 					if(isStop()) {
 						this.cancel();
@@ -139,6 +142,22 @@ public class Pet {
 
 	public void setStop(boolean stop) {
 		this.stop = stop;
+	}
+
+	public boolean isMoove() {
+		return moove;
+	}
+
+	public void setMoove(boolean moove) {
+		this.moove = moove;
+	}
+
+	public boolean isCanDispawn() {
+		return canDispawn;
+	}
+
+	public void setCanDispawn(boolean canDispawn) {
+		this.canDispawn = canDispawn;
 	}
 
 }

@@ -1,11 +1,13 @@
 package fr.Maxime3399.MaxCosmetics.events;
 
 import org.bukkit.Sound;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 
+import fr.Maxime3399.MaxCosmetics.actions.PetBallAction;
 import fr.Maxime3399.MaxCosmetics.custom.Pet;
 import fr.Maxime3399.MaxCosmetics.managers.PetsManager;
 import fr.Maxime3399.MaxCosmetics.menus.ExerciseMenu;
@@ -15,6 +17,16 @@ public class InteractEvents implements Listener {
 	
 	@EventHandler
 	public void onInteractEntity(PlayerInteractAtEntityEvent e) {
+		
+		if(e.getRightClicked().getType() == EntityType.ARMOR_STAND) {
+			
+			if(PetBallAction.balls.contains(e.getRightClicked())) {
+				
+				e.setCancelled(true);
+				
+			}
+			
+		}
 		
 		boolean entity = false;
 		Pet pet = null;
