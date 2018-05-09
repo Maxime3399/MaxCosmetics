@@ -12,6 +12,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.Maxime3399.MaxCosmetics.actions.PetBallAction;
+import fr.Maxime3399.MaxCosmetics.actions.PetFreesbieAction;
 import fr.Maxime3399.MaxCosmetics.commands.CommandMccmd;
 import fr.Maxime3399.MaxCosmetics.custom.Pet;
 import fr.Maxime3399.MaxCosmetics.list.PetsList;
@@ -33,6 +34,7 @@ public class MainClass extends JavaPlugin{
 		PetsManager.use = true;
 		PlayersManager.use = true;
 		PetBallAction.use = true;
+		PetFreesbieAction.use = true;
 		
 		if(VersionsManager.setupVersion()) {
 			
@@ -153,6 +155,12 @@ public class MainClass extends JavaPlugin{
 		}
 		
 		for(ArmorStand as : PetBallAction.balls) {
+			
+			as.remove();
+			
+		}
+		
+		for(ArmorStand as : PetFreesbieAction.freesbies) {
 			
 			as.remove();
 			

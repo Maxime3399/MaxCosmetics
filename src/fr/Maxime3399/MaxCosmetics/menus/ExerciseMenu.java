@@ -34,7 +34,7 @@ public class ExerciseMenu {
 		if(mpd.getToy_ball() > 0) {
 			IStball = new ItemStack(Material.SLIME_BALL);
 			if(mpd.getToy_ball() <= 64) {
-				IStball.setAmount(mpd.getFood_appple());
+				IStball.setAmount(mpd.getToy_ball());
 			}else {
 				IStball.setAmount(64);
 			}
@@ -60,6 +60,43 @@ public class ExerciseMenu {
 		IMtball.setLore(ALtball);
 		IStball.setItemMeta(IMtball);
 		i.addItem(IStball);
+		
+		ItemStack IStfreesbie = new ItemStack(Material.INK_SACK, 1, (short) 8);
+		ItemMeta IMtfreesbie = IStfreesbie.getItemMeta();
+		ArrayList<String> ALtfreesbie = new ArrayList<>();
+		ALtfreesbie.add(MessageUtils.getString("menu_item_toy_freesbie_add_1"));
+		ALtfreesbie.add(MessageUtils.getString("menu_item_toy_freesbie_add_2"));
+		ALtfreesbie.add(MessageUtils.getString("menu_item_food_posses")+mpd.getToy_freesbie());
+		ALtfreesbie.add(" ");
+		if(mpd.getToy_freesbie() > 0) {
+			IStfreesbie = new ItemStack(Material.CARPET);
+			if(mpd.getToy_freesbie() <= 64) {
+				IStfreesbie.setAmount(mpd.getToy_freesbie());
+			}else {
+				IStfreesbie.setAmount(64);
+			}
+			IMtfreesbie = IStfreesbie.getItemMeta();
+			IMtfreesbie.setDisplayName(MessageUtils.getString("menu_item_toy_freesbie"));
+			if(PetsList.getPetExercise(mpd, pet) <= 99) {
+				ALtfreesbie.add(MessageUtils.getString("menu_item_food_click_eat"));
+			}else {
+				ALtfreesbie.add(MessageUtils.getString("menu_item_food_tired"));
+				ALtfreesbie.add(" ");
+				ALtfreesbie.add(MessageUtils.getString("menu_item_food_click_eat_no"));
+			}
+		}else {
+			IMtfreesbie.setDisplayName(MessageUtils.getString("menu_item_toy_freesbie_no"));
+			ALtfreesbie.add(MessageUtils.getString("menu_item_get"));
+			ALtfreesbie.add(" ");
+			if(mpd.getGold() >= 1) {
+				ALtfreesbie.add(MessageUtils.getString("menu_item_toy_freesbie_pay"));
+			}else {
+				ALtfreesbie.add(MessageUtils.getString("menu_item_toy_freesbie_pay_no"));
+			}
+		}
+		IMtfreesbie.setLore(ALtfreesbie);
+		IStfreesbie.setItemMeta(IMtfreesbie);
+		i.addItem(IStfreesbie);
 		
 		open.openInventory(i);
 		

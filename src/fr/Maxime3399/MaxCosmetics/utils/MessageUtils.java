@@ -338,6 +338,18 @@ public class MessageUtils {
 			result = "§eAchetable pour §65 or";
 		}else if(MessageID.equals("menu_item_toy_ball_pay_no")) {
 			result = "§cIl te faut §65 or";
+		}else if(MessageID.equals("menu_item_toy_freesbie_add_1")) {
+			result = "§7Exercice : §a+20";
+		}else if(MessageID.equals("menu_item_toy_freesbie_add_2")) {
+			result = "§7Expérience : §a+40";
+		}else if(MessageID.equals("menu_item_toy_freesbie")) {
+			result = "§eFreesbie";
+		}else if(MessageID.equals("menu_item_toy_freesbie_no")) {
+			result = "§6Freesbie";
+		}else if(MessageID.equals("menu_item_toy_freesbie_pay")) {
+			result = "§eAchetable pour §610 or";
+		}else if(MessageID.equals("menu_item_toy_freesbie_pay_no")) {
+			result = "§cIl te faut §610 or";
 		}
 		return result;
 		
